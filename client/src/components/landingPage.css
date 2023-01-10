@@ -1,0 +1,69 @@
+
+.landing{
+    background-image: url('../images/wei.jpg');
+    height: 100vw;
+    width: 100vw;
+    background-position: center ;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+    margin: -25px;
+}
+.title{
+    color: antiquewhite;
+}
+.sub_title{
+    color:antiquewhite;
+}
+
+.bone {
+    --ty:-1em;
+    --tx:-1em;
+    --s:50px;
+    display: inline-block;
+    text-align: center;
+    background: var(--color);
+    color: var(--bg);
+    font-weight: bold;
+    padding: 1em 1em 1.03em;
+    margin:2em;
+    line-height: 1;
+    border-radius: 0.4em;
+    position: relative;
+    z-index:0;
+    min-width: 8.23em;
+    text-decoration: none;
+    font-family:  Montserrat, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.25rem;
+    filter: url('#goo');
+}
+
+.bone:before {
+    content: "";
+    position: absolute;
+    z-index:-1;
+    top:50%;  
+    bottom:50%;
+    left:0;
+    right:0;
+    background: 
+      radial-gradient(farthest-side,var(--color) 98%,transparent 100%) top    left,
+      radial-gradient(farthest-side,var(--color) 98%,transparent 100%) top    right,
+      radial-gradient(farthest-side,var(--color) 98%,transparent 100%) bottom left,
+      radial-gradient(farthest-side,var(--color) 98%,transparent 100%) bottom right;
+    background-size: var(--s) var(--s);
+    background-repeat:no-repeat;
+    transition:0.6s;
+}
+.bone:hover::before {
+    top:var(--ty);  
+    bottom:var(--ty);
+    left:var(--tx);
+    right:var(--tx);
+}
+
+.total {
+    background: var(--bg);
+    --bg: black;
+    --color:#eee;
+}

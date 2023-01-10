@@ -1,0 +1,26 @@
+
+ .search{
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+} 
+
+.busqueda{
+    
+    -webkit-border-radius: 11;
+    -moz-border-radius: 11;
+    border-radius: 11px;
+    font-family: Arial;
+    color: black;
+    font-size: 21px;
+    background: #CCE1F4;
+    padding: 6px 13px 6px 10px;
+    border: solid #25B386 1px;
+    text-decoration: none;
+} 
+.busqueda:hover {
+    background: #25B386;
+    text-decoration: none;
+}
+
+

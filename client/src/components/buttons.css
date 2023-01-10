@@ -1,0 +1,24 @@
+.colores{
+   
+
+color: #002d40 #CCE1F4 #4CB3A0 #25B386 #9CE451;
+
+}
+
+.botonDespl {
+    -webkit-border-radius: 11;
+    -moz-border-radius: 11;
+    border-radius: 11px;
+    font-family: Arial;
+    color: #002d40;
+    font-size: 26px;
+    background: #CCE1F4;
+    padding: 0px 8px 0px 6px;
+    border: solid #25B386 1px;
+    text-decoration: none;
+  }
+  
+  .botonDespl:hover {
+    background: #25B386;
+    text-decoration: none;
+  }
