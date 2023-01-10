@@ -214,14 +214,14 @@ export default function DogCreate(){
 
                             {err.temperament &&(<p className='err'>{err.temperament}</p>)}
                             {temperament.map(c =>(
-                                <option value={c.name}>{c.name}</option>
+                                <option key={c.name} value={c.name}>{c.name}</option>
                             ))}
                         </select>
                     </div>
                     <div>
                     <ul><li>{input.temperament.map(e => e + ", ")}</li></ul>
                     {input.temperament.map(elem =>
-                    <button className='del' onClick={() => handleDelete(elem)}> X </button>
+                    <button key={elem} className='del' onClick={() => handleDelete(elem)}> X </button>
                         )}
                     </div>
 
