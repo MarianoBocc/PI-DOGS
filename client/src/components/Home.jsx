@@ -108,8 +108,8 @@ import Buttons from "./Buttons"
 
             <select className="botonSel" onChange={(e) => handleWeight(e)}>
                 <option>Weight</option>
-                <option value="Heavy">Heavy</option>
-                <option value="Light">Light</option>
+                <option value="Heavy">Light</option>
+                <option value="Light">Heavy</option>
             </select>
 
             <select className="botonSel" onChange={(e) => handleFilterCreated(e)}>
@@ -135,8 +135,8 @@ import Buttons from "./Buttons"
                         id={el.id}
                         name={el.name}
                         image={el.image}
+                        weight={el.weight.imperial + ( 'Lbs  | ' )+ el.weight.metric + ('Kgs')}
                         temperaments={el.temperaments ? el.temperaments : el.temperaments?.map((ele, index) => el.temperaments.length -1 === index? ele.name : ele.name + (', '))}
-                        weight={el.weightMin + (' - ') + el.weightMax}
 
                     />
                 ))}

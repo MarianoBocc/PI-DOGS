@@ -61,70 +61,33 @@ function rootReducer(state= initialState, action){
         }
 
         case 'ORDER_BY_NAME': //'Asc. Desc'
-        const videogames3 = [...state.dogs];
-                const orderAZ = action.payload === 'All' ?
-                 videogames3: 
+        const sortName = [...state.dogs];
+        const orderAZ = action.payload === 'All' ?
+                 sortName: 
                  action.payload === 'Asc' ?
-                     videogames3.sort((a, b) =>
+                     sortName.sort((a, b) =>
                         a.name.toUpperCase() > b.name.toUpperCase() ? 1 : -1)
-                    : videogames3.sort((a, b) =>
-                        a.name.toUpperCase() > b.name.toUpperCase() ? -1 : 1
-                    );
+                    : sortName.sort((a, b) =>
+                        a.name.toUpperCase() > b.name.toUpperCase() ? -1 : 1);
                 return {
                     ...state,
                     dogs: orderAZ,
                 };  
-            // let sortName = action.payload ==='Asc'?
-            // state.allDogs.sort(function(a, b) {
-            //     if (a.name.toLowerCase() > b.name.toLowerCase()) {
-            //         return 1;
-            //     }
-            //     if (b.name.toLowerCase() > a.name.toLowerCase()) {
-            //         return -1;
-            //     }
-            //     return 0; // si son iguales lo deja como están 
-            // }) 
-            // :state.allDogs.sort(function(a, b) { // si no, ordenalo 'Desc'
-            //     if (a.name.toLowerCase() > b.name.toLowerCase()) {
-            //         return -1;
-            //     }
-            //     if (b.name.toLowerCase() > a.name.toLowerCase()) {
-            //         return 1;
-            //     }
-            //     return 0;
-            // })
-            // return {
-            //     ...state,
-            //     dogs: sortName,
-            // };
-
 
         case 'ORDER_BY_WEIGHT':
-            let sortWeight = action.payload === 'Light' ?
-            state.dogs.sort(function(a, b) {
-                if (a.weight > b.weight) {
-                    return 1;
-                }
-                if(b.weight > a.weight) {
-                    return -1;
-                }
-                return 0;
-            })
-            :state.dogs.sort(function(a, b) {
-                if (a.weight > b.weight) {
-                    return -1;
-                }
-                if ( b.weight > a.weight) {
-                    return 1;
-                }
-                return 0;        
-            });
-            return  {
+      
+        const sortWeight =[...state.dogs]
+        const orderWeight = action.payload === 'All'?
+        sortWeight:
+          action.payload === 'Heavy' ? 
+          sortWeight.sort((a, b) =>
+            parseInt(a.weight.metric)-parseInt(b.weight.metric))
+            : sortWeight.sort((a, b) => 
+            parseInt(b.weight.metric)-parseInt(a.weight.metric));
+            return{
                 ...state,
-                dogs: sortWeight,
-            
-
-        };
+                dogs: orderWeight, 
+      };
         case 'GET_DETAIL':
              return {
                  ...state,

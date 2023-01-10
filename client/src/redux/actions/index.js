@@ -18,7 +18,7 @@ export function getDogName(name){ //name o payload, da igual
             var json = await axios.get('http://localhost:3001/dogs?name=' + name);
             return dispatch ({
                 type: 'GET_DOG_NAME',
-                payload: json.data //json.data es lo q devuelve esa ruta
+                payload: json.data 
             })
       } catch (error) {
         alert('Dog not found');
@@ -45,7 +45,7 @@ export function postDog(payload){
     }
 }
 
-export function filterDogsByTemperament(payload){ //el payload es el valor q voy a recibir
+export function filterDogsByTemperament(payload){ 
     console.log(payload)
     return {
         type: 'FILTER_BY_TEMPERAMENT',
@@ -54,7 +54,7 @@ export function filterDogsByTemperament(payload){ //el payload es el valor q voy
 
 }
 
-export function filterCreated(payload){// el payload es la opcion de filtro del form
+export function filterCreated(payload){
     return {
         type: 'FILTER_CREATED',
         payload
