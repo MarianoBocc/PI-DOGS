@@ -50,7 +50,6 @@ import Buttons from "./Buttons"
     
     //// FILTROS////
     function handleFilterTemperament(e){
-        console.log(e.target.value)
         dispatch(filterDogsByTemperament(e.target.value));
         setCurrentPage(1);
         setOrder(e.target.value)
@@ -97,9 +96,8 @@ import Buttons from "./Buttons"
             </select>
 
             <select className="botonSel" onChange={(e) => handleFilterTemperament(e)}>
-                <option>Temperaments</option>
-                <option value='All'>All</option>
-                {allTemperament.map((temperament) => (
+                <option value='All'>Temperaments</option>
+                {allTemperament?.map((temperament) => (
                     <option key={temperament.name} value={temperament.name}>
                     {temperament.name}
                     </option>
@@ -113,7 +111,6 @@ import Buttons from "./Buttons"
             </select>
 
             <select className="botonSel" onChange={(e) => handleFilterCreated(e)}>
-                <option>Dogs</option>
                 <option value='All'>All</option>
                 <option value='Created'>Created</option>
                 <option value='Api'>Existent</option>
@@ -128,7 +125,7 @@ import Buttons from "./Buttons"
             <div>
                 <Buttons pageNumber={pagesNumber} currentPage={currentPage} changePage={pagination} />
             </div>
-            <ul className='card_grid'>
+            <div className="card_grid">
                 {currentDogs?.map(el => (
                     <Card
                         key={el.id}
@@ -140,7 +137,7 @@ import Buttons from "./Buttons"
 
                     />
                 ))}
-            </ul>
+            </div>
         </div>
     </div>
  )

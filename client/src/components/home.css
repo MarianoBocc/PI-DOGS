@@ -1,9 +1,9 @@
 
 .fondo{
-    background-color: #4CB3A0;
+    background-color: #eaebad;
 }
 .head{
-    background-color: #002d40;
+    background-color: #14591d;
     height: 50px; 
     display: flex;
     justify-content: left;
@@ -13,27 +13,39 @@
     
     
 }
-.reload_dogs{
-    -webkit-border-radius: 11;
-    -moz-border-radius: 11;
-    border-radius: 11px;
-    font-family: Arial;
-    color: black;
-    font-size: 21px;
-    background: #CCE1F4;
-    padding: 6px 13px 6px 10px;
-    border: solid #25B386 1px;
+.reload_dogs {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #EAEBAD;
+    font-family: Trebuchet MS;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 7px;
+    background-color: #99AA38;
+    -webkit-box-shadow: 1px 1px 20px 0 #000000;
+    -moz-box-shadow: 1px 1px 20px 0 #000000;
+    box-shadow: 1px 1px 20px 0 #000000;
+    border: solid #0A210F 2px;
     text-decoration: none;
-} 
-.reload_dogs:hover {
-    background: #25B386;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+ }
+ 
+ .reload_dogs:hover {
+    background: #0A210F;
+    border: solid #99AA38 2px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
     text-decoration: none;
-}
+ }
 .filtros{
 
 }
 .selectores{
-    background-color: aqua;
+    background-color: #acd2ed;
 }
 .botonSel{
     

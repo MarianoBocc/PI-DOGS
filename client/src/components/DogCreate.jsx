@@ -63,7 +63,7 @@ function createValidations(input){
 
 export default function DogCreate(){
     const dispatch = useDispatch()
-    //const history = useHistory() 
+    const history = useHistory() 
     const temperament = useSelector((state) => state.temperament) 
     const [err, setErr] = useState({});
     // formulario
@@ -125,7 +125,7 @@ export default function DogCreate(){
             input.weightMax += 'Kgs'
             input.heightMax += 'cm'
             input.life_span = input.lifein + '-' + input.lifeMax + 'years'
-
+            console.log(input)
             dispatch(postDog(input));
             alert('Your new friend was succesfully created')
             setInput({
@@ -144,7 +144,7 @@ export default function DogCreate(){
             return;
         }
 
-        useHistory.push('/home')  
+        history.push('/home')  
     }
 
     ////Delete///

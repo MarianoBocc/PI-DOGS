@@ -29,7 +29,7 @@ export function getDogName(name){ //name o payload, da igual
 
 export function getTemperament(){
     return async function(dispatch) {
-        var json = await axios.get('http://localhost:3001/temperaments/');
+        const json = await axios.get('http://localhost:3001/temperaments');
         return dispatch({
             type: 'GET_TEMPERAMENT',
             payload: json.data
@@ -39,7 +39,7 @@ export function getTemperament(){
 
 export function postDog(payload){
     return async function(dispatch) {
-        const data = await axios.post('http://localhost:3001/dogs/', payload);
+        const data = await axios.post('http://localhost:3001/dogs', payload);
         console.log(data)
         return data;
     }
@@ -49,9 +49,8 @@ export function filterDogsByTemperament(payload){
     console.log(payload)
     return {
         type: 'FILTER_BY_TEMPERAMENT',
-        payload
-    }
-
+        payload,
+    };
 }
 
 export function filterCreated(payload){

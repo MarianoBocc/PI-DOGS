@@ -33,32 +33,38 @@ function rootReducer(state= initialState, action){
                 ...state,
             }
 
+      
+        //  case 'FILTER_BY_TEMPERAMENT':
+        //     const allT = state.allDogs;
+        //         const tempFilter = action.payload === 'All' ? allT : state.allDogs.filter((e) => e.temperament.includes(action.payload)
+        //         );
+        //     return {...state,
+        //                 dogs: tempFilter
+        //             };
         case 'FILTER_BY_TEMPERAMENT':
-            const allBreeds = state.dogs //aca tb para el filtro desde todos
+            const allBreeds = state.allDogs 
             const temperamentFiltered = action.payload === 'All'? 
-              allBreeds :
-               allBreeds.filter(el => el.temperament?.toLowerCase().includes(action.payload.toLowerCase()))
-            
-                //    return el.temperament? el.temperament.includes(action.payload) :
-            //         el.temperaments?.map(ele => ele.name).includes(action.payload) 
-                    
-            
+            state.allDogs : allBreeds.filter(el => {
+               return el.temperament? el.temperament.includes(action.payload) :
+                    el.temperament?.map(ele => ele.name).includes(action.payload) //acá le saqué la s al primer temperament y filtra pero no renderiza
+
+            })
                 return {
-                    ...state, 
+                    ...state, //me traigo todo lo de estado
                     dogs: temperamentFiltered
-                    
+
         }
+                    
 
         case 'FILTER_CREATED':
-            const filterCreated = action.payload === 'Created' ? 
-            state.allDogs.filter(el => el.createdInDb) 
-            : state.allDogs.filter( el => !el.createdInDb)
+            const allCreated = state.dogs;
+            const createdFilter = action.payload === 'Created' ? allCreated.filter(e => e.createInDb) : state.allDogs.filter(e => !e.createInDb)
             return {
-                ...state, //me devuelve el estado anterior
-                dogs: action.payload === 'All'? state.allDogs 
-                : filterCreated  
+                ...state,
+                dogs: action.payload === 'All' ? state.allDogs : createdFilter
+            } 
 
-        }
+
 
         case 'ORDER_BY_NAME': //'Asc. Desc'
         const sortName = [...state.dogs];
