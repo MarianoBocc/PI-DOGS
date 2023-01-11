@@ -167,7 +167,7 @@ export default function DogCreate(){
                 <form onSubmit={(e) => handleSubmit(e)}>
                     <div>
                         <label className='label'> Dog name </label>
-                        <input type='text' value={input.name} name='name' onChange={(e) => handleChange(e)}/>
+                        <input type='text' value={input.name} name='name' onChange={(e) => handleChange(e)} />
                         {err.name && (<p className='err'>{err.name}</p>)}
                     </div>
 

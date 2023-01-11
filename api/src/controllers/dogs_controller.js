@@ -33,7 +33,7 @@ const getAllDogs = async ()=>{
     const apiInfo = await getApiInfo();
     const dbInfo = await getDbInfo();
     const infoTotal = apiInfo.concat(dbInfo);      // concatenamos la primera con la segunda constante
-    return apiInfo;                               // devolvemos un arreglo con toda la info
+    return infoTotal;                               // devolvemos un arreglo con toda la info
 };
 
 

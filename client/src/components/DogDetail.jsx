@@ -17,16 +17,20 @@ export default function DogDetail(props) {
     return (
         <div>
             <Link to='/home'><button>VOLVER</button></Link>
-            <h2>{detail.name}</h2>
-            <div>
-                <span>weight imperial : {detail.weight?.imperial}</span> | <span>weight metric : {detail.weight?.metric}</span>
-            </div>
-            <div>
-                <span>height imperial : {detail.height?.imperial}</span> | <span>height metric : {detail.height?.metric}</span>
-            </div>
-            <h4>life span : {detail.life_span}</h4>
-            <h4>temperaments : {detail.temperaments}</h4>
-            <img src={detail.image} alt='img not found'/>
+            <div className='dogDetail'>
+              <h2 className='race'>{detail.name}</h2>
+               <div>
+                   <span className='measures'>weight imperial : {detail.weight?.imperial}</span> | <span>weight metric : {detail.weight?.metric}</span>
+               </div>
+               <div>
+                   <span className='measures'>height imperial : {detail.height?.imperial}</span> | <span>height metric : {detail.height?.metric}</span>
+                   <h4 className='measures'>life span : {detail.life_span}</h4>
+                   <h4 className='temps'>temperaments : {detail.temperaments}</h4>
+               </div>
+               <div>
+                  <img className='img' src={detail.image} alt='img not found'/>
+                </div>
+             </div>
         </div>
     )
 };

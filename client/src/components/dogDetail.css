@@ -1,0 +1,6 @@
+.dogDetail{
+    display: flex;
+    width: 550px;
+    flex-direction: row;
+    
+}

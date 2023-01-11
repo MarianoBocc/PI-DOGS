@@ -24,7 +24,10 @@ import Buttons from "./Buttons"
     const dogsPerPage = 8
     const indexOfLastDog = currentPage * dogsPerPage 
     const indexOfFirstDog = indexOfLastDog - dogsPerPage 
-    const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog)
+    let currentDogs;
+    let notFound = false
+    if(!allDogs.message) currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog)
+    else notFound = true
 
     const pagination = (pageNumber) => { 
       setCurrentPage(pageNumber)
@@ -129,7 +132,9 @@ import Buttons from "./Buttons"
             </div>
             <div className="conteiner">
             <div className="card_grid">
-                {currentDogs?.map(el => (
+            { notFound 
+                    ? <button className="botonSel" onClick={e=> {handleClick(e)}}>no se encontró, volver a intentar</button>
+                : currentDogs?.map(el => (
                     <Card
                         key={el.id}
                         id={el.id}

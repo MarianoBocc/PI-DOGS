@@ -1,6 +1,6 @@
 .Card_container {
     border-radius: 10px;
-    min-height: 200px;
+    min-height: 300px;
     font-weight: bold;
     padding: 20px;
     position: relative;
@@ -23,5 +23,5 @@
 } 
 .Card_data{
    display: grid;
-   grid-template-rows: 1fr 2fr 1fr;
+   grid-template-rows: 1fr 2fr ;
 }

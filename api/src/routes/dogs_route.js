@@ -63,7 +63,7 @@ router.post("/", async (req,res)=>{
       where: {name: temperament}
     })
     dog.addTemperament(dogTemperament)
-    res.status(201).send("the dog was created")
+    res.status(201).send(dog)
   } catch (error) {
     console.log(error)
   }
