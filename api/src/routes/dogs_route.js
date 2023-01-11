@@ -47,7 +47,7 @@ router.get('/:idRaza', async (req, res, next) => {
 });
   
 router.post("/", async (req,res)=>{
-  const { name, height, weight, image, life_span, temperaments } = req.body;
+  const { name, height, weight, image, life_span, temperament } = req.body;
   if (!name || !height || !weight || !image) {
     return res.status(404).send("required values")
   }
@@ -60,11 +60,9 @@ router.post("/", async (req,res)=>{
   try {
     const dog = await Dog.create({name, height, weight, life_span, image})
     let dogTemperament = await Temperament.findAll({
-      where: {
-        name: temperaments
-      }
+      where: {name: temperament}
     })
-    await dog.addTemperament(dogTemperament)
+    dog.addTemperament(dogTemperament)
     res.status(201).send("the dog was created")
   } catch (error) {
     console.log(error)

@@ -77,7 +77,7 @@ import Buttons from "./Buttons"
     }; 
 
  return (
-    <div className='fondo'>
+    <div className="fondo">
         <div className="head">
 
         <Link to= '/dog'>
@@ -86,8 +86,8 @@ import Buttons from "./Buttons"
         <button className='reload_dogs' onClick={e=> {handleClick(e)}}>Reload Dogs</button>
         </div>
 
-        <div className="pagina">
-            <div className="selectores">
+        
+        <div className="selectores">
 
             <select className="botonSel" onClick={e=> {handleSort(e)}}>
                 <option value='Asc'>A-Z</option>
@@ -115,7 +115,8 @@ import Buttons from "./Buttons"
                 <option value='Created'>Created</option>
                 <option value='Api'>Existent</option>
             </select>
-            </div>
+        </div>
+        <div>
             <Search/> 
             <Pagination
                 dogsPerPage={dogsPerPage}
@@ -125,6 +126,8 @@ import Buttons from "./Buttons"
             <div>
                 <Buttons pageNumber={pagesNumber} currentPage={currentPage} changePage={pagination} />
             </div>
+            </div>
+            <div className="conteiner">
             <div className="card_grid">
                 {currentDogs?.map(el => (
                     <Card
@@ -140,6 +143,7 @@ import Buttons from "./Buttons"
             </div>
         </div>
     </div>
+   
  )
 }
  

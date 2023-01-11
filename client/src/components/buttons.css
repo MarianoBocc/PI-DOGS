@@ -6,19 +6,27 @@ color: #0a210f #14591d #99aa38 #eaebad #acd2ed;
 }
 
 .botonDespl {
-    -webkit-border-radius: 11;
-    -moz-border-radius: 11;
-    border-radius: 11px;
-    font-family: Arial;
-    color: #002d40;
-    font-size: 26px;
-    background: #CCE1F4;
-    padding: 0px 8px 0px 6px;
-    border: solid #25B386 1px;
-    text-decoration: none;
-  }
-  
-  .botonDespl:hover {
-    background: #25B386;
-    text-decoration: none;
-  }
+  -webkit-border-radius: 11px;
+  -moz-border-radius: 11px;
+  border-radius: 11px;
+  color: #14591D;
+  font-family: Trebuchet MS;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 5px;
+  background-color: #99AA38;
+  border: double #0A210F 0;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+
+.botonDespl:hover {
+  background: #ACD2ED;
+  border: solid #99AA38 2px;
+  -webkit-border-radius: 11px;
+  -moz-border-radius: 11px;
+  border-radius: 11px;
+  text-decoration: none;
+}

@@ -3,24 +3,36 @@
     display: flex;
     justify-content: right;
     align-items: flex-end;
+    padding: 10px 10px 10px 10px;
 } 
-
-.busqueda{
-    
-    -webkit-border-radius: 11;
-    -moz-border-radius: 11;
-    border-radius: 11px;
-    font-family: Arial;
-    color: black;
-    font-size: 21px;
-    background: #CCE1F4;
-    padding: 6px 13px 6px 10px;
-    border: solid #25B386 1px;
-    text-decoration: none;
-} 
-.busqueda:hover {
-    background: #25B386;
-    text-decoration: none;
+.input{
+    margin: 5px;
+    padding: 8px;
 }
 
+.busqueda {
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    border-radius: 11px;
+    color: #14591D;
+    font-family: Trebuchet MS;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 5px;
+    background-color: #99AA38;
+    border: double #0A210F 0;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+ }
+ 
+ .busqueda:hover {
+    background: #ACD2ED;
+    border: solid #99AA38 2px;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    border-radius: 11px;
+    text-decoration: none;
+ }
 

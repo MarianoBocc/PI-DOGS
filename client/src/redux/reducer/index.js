@@ -34,28 +34,20 @@ function rootReducer(state= initialState, action){
             }
 
       
-        //  case 'FILTER_BY_TEMPERAMENT':
-        //     const allT = state.allDogs;
-        //         const tempFilter = action.payload === 'All' ? allT : state.allDogs.filter((e) => e.temperament.includes(action.payload)
-        //         );
-        //     return {...state,
-        //                 dogs: tempFilter
-        //             };
+      
         case 'FILTER_BY_TEMPERAMENT':
             const allBreeds = state.allDogs 
             const temperamentFiltered = action.payload === 'All'? 
             state.allDogs : allBreeds.filter(el => {
-               return el.temperament? el.temperament.includes(action.payload) :
-                    el.temperament?.map(ele => ele.name).includes(action.payload) //acá le saqué la s al primer temperament y filtra pero no renderiza
+               return el.temperaments? el.temperaments.includes(action.payload) :
+                    el.temperaments?.map(ele => ele.name).includes(action.payload) //acá le saqué la s al primer temperament y filtra pero no renderiza
 
             })
                 return {
                     ...state, //me traigo todo lo de estado
                     dogs: temperamentFiltered
-
         }
-                    
-
+        
         case 'FILTER_CREATED':
             const allCreated = state.dogs;
             const createdFilter = action.payload === 'Created' ? allCreated.filter(e => e.createInDb) : state.allDogs.filter(e => !e.createInDb)

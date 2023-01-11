@@ -31,7 +31,7 @@ function handleSubmit(e){
         <form  onSubmit={(e) => handleSubmit(e)}>
         
            
-           <input type= 'text' 
+           <input className='input' type= 'text' 
            value={name} 
            placeholder='Find a puppy...'
            onChange = {(e) => handleInputChange(e)}
