@@ -161,13 +161,13 @@ export default function DogCreate(){
         <div className='dogCreate'>
            
                 <Link to={'/home'}>
-                    <button>HOME</button>
+                    <button className='backButton'>HOME</button>
                 </Link>
-                <h1> It's time to create!</h1>
-                <form onSubmit={(e) => handleSubmit(e)}>
+                <form className='form' onSubmit={(e) => handleSubmit(e)}>
+                  <h1 className='title'> It's time to create!</h1>
                     <div>
                         <label className='label'> Dog name </label>
-                        <input type='text' value={input.name} name='name' onChange={(e) => handleChange(e)} />
+                        <input className='input' type='text' value={input.name} name='name' onChange={(e) => handleChange(e)} />
                         {err.name && (<p className='err'>{err.name}</p>)}
                     </div>
 
@@ -208,10 +208,8 @@ export default function DogCreate(){
                     </div>
 
                     <div>    
-                        <label className='label'>Temperaments </label>
+                        <label className='temperaments'>Temperaments </label>
                         <select onChange={(e) => handleTemperament(e)}>
-
-
                             {err.temperament &&(<p className='err'>{err.temperament}</p>)}
                             {temperament.map(c =>(
                                 <option key={c.name} value={c.name}>{c.name}</option>
@@ -221,7 +219,7 @@ export default function DogCreate(){
                     <div>
                     <ul><li>{input.temperament.map(e => e + ", ")}</li></ul>
                     {input.temperament.map(elem =>
-                    <button key={elem} className='del' onClick={() => handleDelete(elem)}> X </button>
+                    <button className='del' key={elem} onClick={() => handleDelete(elem)}> X </button>
                         )}
                     </div>
 
@@ -232,7 +230,7 @@ export default function DogCreate(){
                      </div>    
 
                         <div>
-                            <button className='creaBut' type='submit'>CREATE</button>
+                            <button className='submitButton' type='submit'>CREATE</button>
                         
                     </div>
 

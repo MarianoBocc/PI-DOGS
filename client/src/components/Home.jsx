@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import './home.css'
 import Search from './Search';
 import Pagination from "./Pagination";
-import Card from "./Card";
+import Card from "./NewCard";
 import Buttons from "./Buttons"
    
     //////Este es el q va/////
@@ -133,7 +133,7 @@ import Buttons from "./Buttons"
             <div className="conteiner">
             <div className="card_grid">
             { notFound 
-                    ? <button className="botonSel" onClick={e=> {handleClick(e)}}>no se encontró, volver a intentar</button>
+                    ? <button className="botonSel" onClick={e=> {handleClick(e)}}>Dog not found, try again.</button>
                 : currentDogs?.map(el => (
                     <Card
                         key={el.id}

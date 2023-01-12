@@ -94,4 +94,19 @@ export function getDetail(id){
             console.log(error)   
         }  
     }  
-}     
+}  
+///////DELETE DOG ////////
+
+export function deleteDog(id) {
+    return async function (dispatch) {
+      return axios
+        .delete( `/dogs/${id}`)
+        .then((res) => {
+          dispatch({
+            type: 'DELETE_DOG',
+            payload: res.data,
+          });
+        })
+        .catch((err) => console.log(err));
+    };
+  }

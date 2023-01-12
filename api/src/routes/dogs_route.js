@@ -3,7 +3,7 @@ const{ getAllDogs } = require("../controllers/dogs_controller.js");
 const { Dog, Temperament } = require('../db');
 const router = Router();
 
-//----- /dogs
+///dogs ///
    
 router.get("/", async (req, res) => {
   const name = req.query.name;
@@ -28,6 +28,8 @@ router.get("/", async (req, res) => {
   }
 }); 
   
+///Raza///
+
 router.get('/:idRaza', async (req, res, next) => {
   const idRaza = req.params.idRaza
   let dogs=await getAllDogs()
@@ -45,7 +47,9 @@ router.get('/:idRaza', async (req, res, next) => {
     next(error)
   }
 });
-  
+
+  ///Crear un nuevo perro///
+
 router.post("/", async (req,res)=>{
   const { name, height, weight, image, life_span, temperament } = req.body;
   if (!name || !height || !weight || !image) {
@@ -69,6 +73,10 @@ router.post("/", async (req,res)=>{
   }
 });
   
+
+
+
+///delete///
 router.delete("/:id", async(req,res) => {
   const id = req.params.id;
   try {
