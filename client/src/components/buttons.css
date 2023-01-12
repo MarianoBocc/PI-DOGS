@@ -1,21 +1,21 @@
 .colores{
    
 
-color: #002d40 #CCE1F4 #4CB3A0 #25B386 #9CE451;
-color: #0a210f #14591d #99aa38 #eaebad #acd2ed;
+color: #002d40 #CCE1F4 #4CB3A0 #25B386 #579bb1;
+color: #579bb1 #579bb1 #e1d7c6 #eaebad #acd2ed;
 }
 
 .botonDespl {
   -webkit-border-radius: 11px;
   -moz-border-radius: 11px;
   border-radius: 11px;
-  color: #14591D;
+  color: #579bb1;
   font-family: Trebuchet MS;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 00;
   padding: 5px;
-  background-color: #99AA38;
-  border: double #0A210F 0;
+  background-color: #e1d7c6;
+  border: double #528fa3 0;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
@@ -24,7 +24,7 @@ color: #0a210f #14591d #99aa38 #eaebad #acd2ed;
 
 .botonDespl:hover {
   background: #ACD2ED;
-  border: solid #99AA38 2px;
+  border: solid #e1d7c6 2px;
   -webkit-border-radius: 11px;
   -moz-border-radius: 11px;
   border-radius: 11px;

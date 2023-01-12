@@ -8,9 +8,9 @@ export default function Card({ id, name, image, temperaments, weight}) {
 <div className='container'>
 <div className='card'>
 <img className='Card_img' src={image} alt='img not found'/>
-<h4>{name}</h4>
+<h2>{name}</h2>
 <p>{temperaments}</p>
-<p>weight</p>
+<p>{weight}</p>
 </div>
 </div>
 </Link>

@@ -1,7 +1,7 @@
 
 
 .head{
-    background-color: #14591d;
+    background-color: #579bb1;
     height: 50px; 
     display: flex;
     justify-content: left;
@@ -13,12 +13,12 @@
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
-    color: #EAEBAD;
+    color: #579bb1;
     font-family: Trebuchet MS;
     font-size: 20px;
     font-weight: 300;
     padding: 7px;
-    background-color: #99AA38;
+    background-color: #ece8dd;
     -webkit-box-shadow: 1px 1px 20px 0 #000000;
     -moz-box-shadow: 1px 1px 20px 0 #000000;
     box-shadow: 1px 1px 20px 0 #000000;
@@ -31,7 +31,7 @@
  
  .reload_dogs:hover {
     background: #0A210F;
-    border: solid #99AA38 2px;
+    border: solid #ece8dd 2px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
@@ -47,13 +47,13 @@
     -webkit-border-radius: 11px;
     -moz-border-radius: 11px;
     border-radius: 11px;
-    color: #14591D;
+    color: #579bb1;
     font-family: Trebuchet MS;
     font-size: 25px;
     font-weight: 900;
     padding: 7px;
-    background-color: #99AA38;
-    border: solid #14591D 3px;
+    background-color: #ece8dd;
+    border: solid #579bb1 3px;
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
@@ -62,7 +62,7 @@
 
 
 .fondo{
-    background-color: #eaebad;
+    background-color: #f8f4ea;
 }
 
 .conteiner{
@@ -78,13 +78,10 @@
 
 .card_grid{
     display: grid;
+    margin: 0 auto;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
 
 }
-/* .card_grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 400px);
-    } */
 
 

@@ -11,13 +11,13 @@
         -webkit-border-radius: 11px;
         -moz-border-radius: 11px;
         border-radius: 11px;
-        color: #14591D;
+        color: #579bb1;
         font-family: Trebuchet MS;
         font-size: 25px;
         font-weight: 900;
         padding: 7px;
-        background-color: #eaebad;
-        border: solid #14591D 3px;
+        background-color: #f8f4ea;
+        border: solid #579bb1 3px;
         text-decoration: none;
         display: inline-block;
         cursor: pointer;
@@ -31,7 +31,7 @@
     margin: auto;
     width: 350px;
     height: 450px;
-    background-color: #99aa38;
+    background-color: #ece8dd;
     
 }
 
@@ -43,5 +43,5 @@
  color: black;
 }
 .race{
-    color:#0a210f;
+    color:#579bb1;
 }

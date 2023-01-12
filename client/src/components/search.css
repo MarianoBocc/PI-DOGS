@@ -14,13 +14,13 @@
     -webkit-border-radius: 11px;
     -moz-border-radius: 11px;
     border-radius: 11px;
-    color: #14591D;
+    color: #579bb1;
     font-family: Trebuchet MS;
     font-size: 20px;
     font-weight: 300;
     padding: 5px;
-    background-color: #99AA38;
-    border: double #0A210F 0;
+    background-color: #e1d7c6;
+    border: double #579bb1 0;
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
@@ -29,7 +29,7 @@
  
  .busqueda:hover {
     background: #ACD2ED;
-    border: solid #99AA38 2px;
+    border: solid #579bb1 2px;
     -webkit-border-radius: 11px;
     -moz-border-radius: 11px;
     border-radius: 11px;
