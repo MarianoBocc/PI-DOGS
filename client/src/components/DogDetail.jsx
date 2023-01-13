@@ -12,7 +12,7 @@ export default function DogDetail(props) {
 
     useEffect(()=> {
         dispatch(getDetail(id)) 
-    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+    }, [dispatch, id]) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <div className='container'>
@@ -20,8 +20,8 @@ export default function DogDetail(props) {
                   <img className='img' src={detail.image} alt='img not found'/>
                <div className='text'>
               <strong className='race'>{detail.name}</strong>
-                   <span className='measures'> weight imperial : {detail.weight?.imperial}</span> | <span>weight metric : {detail.weight?.metric}</span>
-                   <span className='measures'>height imperial : {detail.height?.imperial}</span> | <span>height metric : {detail.height?.metric}</span>
+                   <span className='measures'> weight imperial : {detail.weight}</span> | <span>weight metric : {detail.weight}</span>
+                   <span className='measures'>height imperial : {detail.height}</span> | <span>height metric : {detail.height}</span>
                    <h4 className='measures'>
                     <p>life span : {detail.life_span}</p>
                     <p>temperaments : {detail.temperaments}</p>

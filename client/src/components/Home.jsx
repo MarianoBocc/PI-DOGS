@@ -20,7 +20,7 @@ import Buttons from "./Buttons"
 
  ////PAGINACIÓN////
     const[currentPage, setCurrentPage] = useState(1) 
-    const [pagesNumber, /*setPagesNumber*/] = useState(22)
+    const [pagesNumber, /*setPagesNumber*/] = useState(23)
     const dogsPerPage = 8
     const indexOfLastDog = currentPage * dogsPerPage 
     const indexOfFirstDog = indexOfLastDog - dogsPerPage 
@@ -135,6 +135,7 @@ import Buttons from "./Buttons"
             { notFound 
                     ? <button className="botonSel" onClick={e=> {handleClick(e)}}>Dog not found, try again.</button>
                 : currentDogs?.map(el => (
+                   
                     <Card
                         key={el.id}
                         id={el.id}

@@ -38,7 +38,7 @@ router.get('/:idRaza', async (req, res, next) => {
     if(!idRaza){
       res.status(200).send(dogs)
     } else {
-      let dog= await dogs.filter(d=> d.id === Number(idRaza))
+      let dog= await dogs.filter(d=> d.id === idRaza)
       console.log(dog)
       dog.length ?
       res.status(200).send(dog[0]) : res.status(404).send('Id not found')
@@ -52,15 +52,15 @@ router.get('/:idRaza', async (req, res, next) => {
 
 router.post("/", async (req,res)=>{
   const { name, height, weight, image, life_span, temperament } = req.body;
-  if (!name || !height || !weight || !image) {
+  if (!name || !height || !weight) {
     return res.status(404).send("required values")
   }
-  // console.log(name)
-  // console.log(height)
-  // console.log(weight)
-  // console.log(image)
-  // console.log(life_span)
-  // console.log(temperaments)
+  console.log(name)
+  console.log(height)
+  console.log(weight)
+  console.log(image)
+  console.log(life_span)
+  console.log(temperament)
   try {
     const dog = await Dog.create({name, height, weight, life_span, image})
     let dogTemperament = await Temperament.findAll({
@@ -69,7 +69,7 @@ router.post("/", async (req,res)=>{
     dog.addTemperament(dogTemperament)
     res.status(201).send(dog)
   } catch (error) {
-    console.log(error)
+    res.status(404).send('No se creo el perro')
   }
 });
   

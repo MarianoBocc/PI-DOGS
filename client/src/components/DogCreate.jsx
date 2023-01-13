@@ -230,7 +230,7 @@ export default function DogCreate(){
                      </div>    
 
                         <div>
-                            <button className='submitButton' type='submit'>CREATE</button>
+                            <button className='submit'type='submit'>CREATE</button>
                         
                     </div>
 
