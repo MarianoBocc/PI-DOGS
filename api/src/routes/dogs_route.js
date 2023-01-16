@@ -29,24 +29,34 @@ router.get("/", async (req, res) => {
 }); 
   
 ///Raza///
-
-router.get('/:idRaza', async (req, res, next) => {
-  const idRaza = req.params.idRaza
-  let dogs=await getAllDogs()
-
-  try {
-    if(!idRaza){
-      res.status(200).send(dogs)
-    } else {
-      let dog= await dogs.filter(d=> d.id === idRaza)
-      console.log(dog)
-      dog.length ?
-      res.status(200).send(dog[0]) : res.status(404).send('Id not found')
-    }
-  } catch (error) {  
-    next(error)
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
+  const dogs = await getAllDogs()
+  if (id) {
+      let dog = await dogs.filter(el => el.id == id) //traer el personaje con ese id 
+      dog.length?
+      res.status(200).json(dog):
+      res.status(404).send('That id was not found 😕')
   }
-});
+})
+
+// router.get('/:id', async (req, res, next) => {
+//   const id = req.params.id
+//   let dogs=await getAllDogs()
+
+//   try {
+//     if(id){
+//       res.status(200).send(dogs)
+//     } else {
+//       let dog= await dogs.filter(d=> d.id === id)
+//       dog.length ?
+//       res.status(200).send(dog[0]) :
+//       res.status(404).send('Id not found')
+//     }
+//   } catch (error) {  
+//     next(error)
+//   }
+// });
 
   ///Crear un nuevo perro///
 
@@ -67,9 +77,10 @@ router.post("/", async (req,res)=>{
       where: {name: temperament}
     })
     dog.addTemperament(dogTemperament)
-    res.status(201).send(dog)
+    console.log(dog)
+    res.status(201).send('Dog sucsesfully created')
   } catch (error) {
-    res.status(404).send('No se creo el perro')
+    res.status(404).send('Dog not created')
   }
 });
   

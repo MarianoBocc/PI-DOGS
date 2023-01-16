@@ -125,8 +125,19 @@ export default function DogCreate(){
             input.weightMax += 'Kgs'
             input.heightMax += 'cm'
             input.life_span = input.lifein + '-' + input.lifeMax + 'years'
-            console.log(input)
-            dispatch(postDog(input));
+
+            let newObject= {
+                name: input.name,
+                height: input.heightMin + ' - ' +  input.heightMax ,
+                weight: input.weightMin + ' - ' + input.weightMax,
+                image: input.image,
+                life_span: input.lifeMin + ' - ' + input.lifeMax,
+                temperament: input.temperament
+            }
+
+
+
+            dispatch(postDog(newObject));
             alert('Your new friend was succesfully created')
             setInput({
                 name: '',
@@ -230,7 +241,7 @@ export default function DogCreate(){
                      </div>    
 
                         <div>
-                            <button className='submit'type='submit'>CREATE</button>
+                            <button className='submit' type='submit'>CREATE</button>
                         
                     </div>
 
