@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import './home.css'
 import Search from './Search';
 import Pagination from "./Pagination";
-import Card from "./NewCard";
+import Card from "./Card";
 import Buttons from "./Buttons"
    
     //////Este es el q va/////
@@ -141,9 +141,9 @@ import Buttons from "./Buttons"
                         id={el.id}
                         name={el.name}
                         image={el.image}
-                        weight={el.weight.imperial + ( 'Lbs  | ' )+ el.weight.metric + ('Kgs')}
+                        weight={el.weight + (' Kgs')}
                         temperaments={el.temperaments ? el.temperaments : el.temperaments?.map((ele, index) => el.temperaments.length -1 === index? ele.name : ele.name + (', '))}
-
+                        //temperaments= {el.temperaments ? el.temperaments : el.Temperaments.map(el => el.name)}
                     />
                 ))}
             </div>

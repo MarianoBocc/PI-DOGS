@@ -6,10 +6,10 @@ const getApiInfo = async () => {
     const apiInfo = await apiUrl.data.map(el =>{
         return{
             id: el.id,
-            weight: el.weight,
+            weight: el.weight.metric,
             name: el.name,
             temperaments:el.temperament,    
-            height: el.height,
+            height: el.height.metric,
             life_span: el.life_span,
             image: el.image.url
         }
@@ -18,21 +18,21 @@ const getApiInfo = async () => {
 };
 // const getDbInfo = async () => {
 
-//     let infoDbgogs = await Dog.findAll({ 
+//     let infoDbdogs = await Dog.findAll({ 
 //         include: {
 //             model: Temperament,
 //             attributes: ['name'],
 //             through: { attributes: [] }
 //         }
 //     })
-//     return infoDbgogs = infoDbgogs.map(el => ({
+//     return infoDbdogs.map(el => ({
 //         id: el.id,
 //         weight: el.weight,
 //         name: el.name, 
 //         height: el.height,
 //         life_span: el.life_span,
 //         image: el.image.url,
-//         temperament: el.temperament.map(e => e.name)
+//         temperament: el.temperamen.map(e => e.name)
         
 //     }))
 // };

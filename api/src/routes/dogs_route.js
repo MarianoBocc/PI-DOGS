@@ -29,34 +29,25 @@ router.get("/", async (req, res) => {
 }); 
   
 ///Raza///
-router.get('/:id', async (req, res) => {
-  const { id } = req.params;
-  const dogs = await getAllDogs()
-  if (id) {
-      let dog = await dogs.filter(el => el.id == id) //traer el personaje con ese id 
-      dog.length?
-      res.status(200).json(dog):
-      res.status(404).send('That id was not found 😕')
+
+router.get('/:id', async (req, res, next) => {
+  const {id} = req.params
+  let dogs=await getAllDogs()
+
+  try {
+    if(id){
+      let dog= await dogs.filter(d=> d.id == id)
+      res.status(200).send(dog)
+    } else {
+      res.send(dogs)
+      // dog.length ?
+      // res.status(200).send(dog[0]) :
+      // res.status(404).send('Id not found')
+    }
+  } catch (error) {  
+    next(error)
   }
-})
-
-// router.get('/:id', async (req, res, next) => {
-//   const id = req.params.id
-//   let dogs=await getAllDogs()
-
-//   try {
-//     if(id){
-//       res.status(200).send(dogs)
-//     } else {
-//       let dog= await dogs.filter(d=> d.id === id)
-//       dog.length ?
-//       res.status(200).send(dog[0]) :
-//       res.status(404).send('Id not found')
-//     }
-//   } catch (error) {  
-//     next(error)
-//   }
-// });
+});
 
   ///Crear un nuevo perro///
 

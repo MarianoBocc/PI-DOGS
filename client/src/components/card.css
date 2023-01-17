@@ -1,27 +1,50 @@
-.Card_container {
-    border-radius: 10px;
-    min-height: 300px;
-    font-weight: bold;
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
-    background-size:cover;
-    background-position: center center;
-    background-color:#acd2ed;
-
-    width: 90%;
-    height: 30%;
-}
-.Card_text{
-    width: 50%;
+.container{
+    width: 100%;
+    max-width: 1200px;
+    height: 430px;
     display: flex;
-    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
     
 }
-.Card_img{
- width: 40%;
-} 
-.Card_data{
-   display: grid;
-   grid-template-rows: 1fr 2fr ;
+h2{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    text-decoration: none;
+}
+p{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: black;
+    text-decoration:antiquewhite;
+}
+
+.container .card{
+    width: 330px;
+    height: 430px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.25s;
+}
+
+.container .card:hover{
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+
+.container .card img{
+    width: 330px;
+    height: 220px;
+}
+
+.container .card h3{
+    font-weight: 600;
+}
+.container .card p{
+    padding: 0 1rem;
+    font-size: 16px;
+    font-weight: 300;
 }
