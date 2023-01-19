@@ -142,8 +142,7 @@ import Buttons from "./Buttons"
                         name={el.name}
                         image={el.image}
                         weight={el.weight.imperial + ( 'Lbs  | ' )+ el.weight.metric + ('Kgs')}
-                        temperaments={el.temperaments ? el.temperaments : el.temperaments?.map((ele, index) => el.temperaments.length -1 === index? ele.name : ele.name + (', '))}
-
+                        temperament={el.temperament ? el.temperament : el.Temperament}
                     />
                 ))}
             </div>

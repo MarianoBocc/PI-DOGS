@@ -7,7 +7,7 @@ import './dogDetail.css';
 export default function DogDetail(props) {
 
     const dispatch = useDispatch();
-    const detail = useSelector(state => state.detail)
+    const detail = useSelector(state => state.detail[0])
     const id = props.match.params.id;
 
     useEffect(()=> {
@@ -16,21 +16,15 @@ export default function DogDetail(props) {
 
     return (
         <div className='container'>
+            <Link to='/home'><button className='volver'>BACK</button></Link>
+           {!!detail &&
             <div className='dogDetail'>
-                  <img className='img' src={detail.image} alt='img not found'/>
-               <div className='text'>
-              <strong className='race'>{detail.name}</strong>
-                   <span className='measures'> weight imperial : {detail.weight}</span> | <span>weight metric : {detail.weight}</span>
-                   <span className='measures'>height imperial : {detail.height}</span> | <span>height metric : {detail.height}</span>
-                   <h4 className='measures'>
-                    <p>life span : {detail.life_span}</p>
-                    <p>temperaments : {detail.temperaments}</p>
-                    </h4>
-               </div>
-               <div>
-               <Link to='/home'><button className='volver'>BACK</button></Link>
-                </div>
-             </div>
-        </div>
-    )
-};
+                <img className='img' src={detail.image} alt='img not found'/>
+                    <strong className='race'>{detail.name}</strong>
+                    <div className='measures'>
+                    <h4>life span : {detail.life_span}</h4>
+                    <h4>temperaments: {detail.temperament? detail.temperament : detail.Temperaments.map(e => e.name + (', '))}</h4>
+                    </div> 
+           
+            </div>}        </div>
+    )};

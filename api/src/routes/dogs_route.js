@@ -40,48 +40,31 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-// router.get('/:id', async (req, res, next) => {
-//   const id = req.params.id
-//   let dogs=await getAllDogs()
+router.post('/', async (req, res) => {
+  let {
+        name, 
+        image, 
+        height,  
+        weight,
+        life_span, 
+        createdInDb, 
+        temperament
+      } = req.body;
 
-//   try {
-//     if(id){
-//       res.status(200).send(dogs)
-//     } else {
-//       let dog= await dogs.filter(d=> d.id === id)
-//       dog.length ?
-//       res.status(200).send(dog[0]) :
-//       res.status(404).send('Id not found')
-//     }
-//   } catch (error) {  
-//     next(error)
-//   }
-// });
-
-  ///Crear un nuevo perro///
-
-router.post("/", async (req,res)=>{
-  const { name, height, weight, image, life_span, temperament } = req.body;
-  if (!name || !height || !weight) {
-    return res.status(404).send("required values")
-  }
-  console.log(name)
-  console.log(height)
-  console.log(weight)
-  console.log(image)
-  console.log(life_span)
-  console.log(temperament)
-  try {
-    const dog = await Dog.create({name, height, weight, life_span, image})
-    let dogTemperament = await Temperament.findAll({
-      where: {name: temperament}
-    })
-    dog.addTemperament(dogTemperament)
-    console.log(dog)
-    res.status(201).send('Dog sucsesfully created')
-  } catch (error) {
-    res.status(404).send('Dog not created')
-  }
+  let dogCreated = await Dog.create ({ //creo el perro con todo esto)
+        name, 
+        image, 
+        height,
+        weight,
+        life_span, 
+        createdInDb, 
+  })  
+  //me lo traigo del modelo de temperament
+  let temperamentDb = await Temperament.findAll({ //el temp lo tengo que encontrar en el modelo q 
+      where : {name : temperament}                // tiene toddos los temperamentos, donde coincida con el temperamento del modelo
+  })
+  dogCreated.addTemperament(temperamentDb) //Temperament de la tabla de base de datos
+  res.send('Dog created')
 });
   
 

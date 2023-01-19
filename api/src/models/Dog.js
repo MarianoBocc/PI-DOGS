@@ -11,11 +11,11 @@ module.exports = (sequelize) => {
       primaryKey: true
     },
     height:{
-      type: DataTypes.JSON,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     weight:{
-      type: DataTypes.JSON,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     life_span:{
@@ -27,7 +27,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
 
-    createdInDb:{                       //Esto ayuda a traer los datos creados por mi de manaera más rápida de la base de datos
+    createdInDB:{                       //Esto ayuda a traer los datos creados por mi de manaera más rápida de la base de datos
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true,

@@ -2,7 +2,7 @@ const initialState = {
     dogs : [],
     allDogs: [], // declaro un estado q siempre va a tener todos los perros
     temperament: [],
-    detail: {}
+    detail: []
 
 };
 
@@ -36,17 +36,15 @@ function rootReducer(state= initialState, action){
       
       
         case 'FILTER_BY_TEMPERAMENT':
-            const allBreeds = state.allDogs 
+            const allBreeds = state.allDogs;
             const temperamentFiltered = action.payload === 'All'? 
-            state.allDogs : allBreeds.filter(el => {
-               return el.temperaments? el.temperaments.includes(action.payload) :
-                    el.temperaments?.map(ele => ele.name).includes(action.payload) //acá le saqué la s al primer temperament y filtra pero no renderiza
-
-            })
-                return {
-                    ...state, //me traigo todo lo de estado
-                    dogs: temperamentFiltered
-        }
+            allBreeds : allBreeds.filter(e => {
+                return e.temperament? e.temperament.includes(action.payload) :
+                e.temperaments?.map(el => el.name).includes(action.payload) })
+            return {
+                ...state,
+                dogs: temperamentFiltered
+            }
         
         case 'FILTER_CREATED':
             const allCreated = state.dogs;

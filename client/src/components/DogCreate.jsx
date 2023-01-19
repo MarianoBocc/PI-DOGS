@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './dogCreate.css';
-import { postDog, getTemperament } from '../redux/actions';
+import { postDog, getTemperament, getAllDogs } from '../redux/actions';
 
 function createValidations(input){
     let err ={};
@@ -18,10 +18,10 @@ function createValidations(input){
     if (input.lifeMin < 0 || input.lifeMin > 20) {
         err.lifeMin = 'Insert a number between 1 & 20';
     }
-    if (input.lifemax < 0 || input.lifemax > 20) {
-        err.lifemax = 'Insert a number between 1 & 20';
+    if (input.lifeMax < 0 || input.lifeMax > 20) {
+        err.lifeMax = 'Insert a number between 1 & 20';
     }
-    if (input.lifemax < input.lifeMin) {
+    if (input.lifeMax < input.lifeMin) {
         err.lifeMin = 'The minimum value can not be greater than the maximum';
     }
 
@@ -104,14 +104,14 @@ export default function DogCreate(){
             ...input,
             temperament: [...input.temperament, e.target.value]
         })
+
     }
+
+   
+
     function handleSubmit(e) {
         e.preventDefault();   //Impide q se recargue la página
-        setErr(createValidations({
-           ...input,
-           [e.target.name] : e.target.value,  
-        })
-        );
+
         if (!Object.keys(err).length && 
             input.lifeMin &&
             input.lifeMax &&
@@ -134,28 +134,18 @@ export default function DogCreate(){
                 life_span: input.lifeMin + ' - ' + input.lifeMax,
                 temperament: input.temperament
             }
+  
+        dispatch(postDog(newObject))    
+        dispatch(getAllDogs())  
+        alert('Dog created successfully!')
+        history.push('/home')
+    };
 
+        //     dispatch(postDog(input));
+        //     // dispatch(getAllDogs())
+        //     alert('Your new friend was succesfully created')
 
-
-            dispatch(postDog(newObject));
-            alert('Your new friend was succesfully created')
-            setInput({
-                name: '',
-                lifeMin: '',
-                lifeMax: '',
-                weightMin: '',
-                weightMax: '',
-                heightMin: '',
-                heightMax: '',
-                temperament: [],
-                image: ''
-            })
-        } else{
-            alert('Your friend was´nt created ');
-            return;
-        }
-
-        history.push('/home')  
+        // history.push('/home')  
     }
 
     ////Delete///
@@ -166,7 +156,7 @@ export default function DogCreate(){
         })
     }
 
-
+    const disabled = Object.keys(err).length 
 
     return(
         <div className='dogCreate'>
@@ -174,6 +164,7 @@ export default function DogCreate(){
                 <Link to={'/home'}>
                     <button className='backButton'>HOME</button>
                 </Link>
+                <div>
                 <form className='form' onSubmit={(e) => handleSubmit(e)}>
                   <h1 className='title'> It's time to create!</h1>
                     <div>
@@ -226,26 +217,24 @@ export default function DogCreate(){
                                 <option key={c.name} value={c.name}>{c.name}</option>
                             ))}
                         </select>
-                    </div>
-                    <div>
-                    <ul><li>{input.temperament.map(e => e + ", ")}</li></ul>
-                    {input.temperament.map(elem =>
-                    <button className='del' key={elem} onClick={() => handleDelete(elem)}> X </button>
-                        )}
-                    </div>
-
                     <div>
                         <label className='label'>Image </label>
                         <input type='text' value={input.image} name='image' onChange={(e) => handleChange(e)}/>
                         {err.image && (<span className='err'>{err.image}</span>)}
                      </div>    
-
-                        <div>
-                            <button className='submit' type='submit'>CREATE</button>
-                        
                     </div>
 
+                            <button className='submit' type='submit'>CREATE</button>
                     </form>
+                    </div>
+            {input.temperament.map((e, i) => {
+                return(
+                    <div key= {i} className="input">
+                    <span>{e} <button className="buttonXdogs" onClick={() => handleDelete(e)}>X</button> </span>
+                </div>
+            )}
+            )}
+                    
                    
         </div>
     )

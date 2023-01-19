@@ -39,10 +39,14 @@ export function getTemperament(){
 }
 
 export function postDog(payload){
-    return async function() {
-        const data = await axios.post('http://localhost:3001/dogs', payload);
-        console.log(data)
-        return   data;  
+//     return async function() {
+//         const data = await axios.post('http://localhost:3001/dogs', payload);
+//         console.log(data)
+//         return   data;  
+// }
+return (dispatch) => {
+    return axios.post('http://localhost:3001/dogs', payload)
+    .then(res => console.log(res))
 }
 }
 
@@ -84,14 +88,14 @@ export function getDetail(id){
                 dispatch ({
                     type: 'GET_DETAIL',
                     payload: detail.data
-                })
-            } else {
-                dispatch({
-                    type: 'GET_DETAIL',
-                    payload: []
-                })
-            }
-        } catch(error){
+                })}
+            // } else {
+            //     dispatch({
+            //         type: 'GET_DETAIL',
+            //         payload: []
+            //     })
+            // }
+             } catch(error){
             console.log(error)   
         }  
     }  

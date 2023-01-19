@@ -6,14 +6,14 @@ const { Temperament } = require('../db')
 // en la db para tenerlos disponibles.
 const getTemperaments = async (req, res, next) => {
   let tempUrl = await axios.get('https://api.thedogapi.com/v1/breeds')
-  let temperaments = []
+  let temperament = []
 
     try {
         tempUrl.data.forEach(e => {
-            if (e.temperament) temperaments = [...temperaments, ...e.temperament.split(', ')]
+            if (e.temperament) temperament = [...temperament, ...e.temperament.split(', ')]
             })
-        let arrayTemperaments = temperaments.filter((item,index) => {
-            return temperaments.indexOf(item) === index;
+        let arrayTemperaments = temperament.filter((item,index) => {
+            return temperament.indexOf(item) === index;
         })
         arrayTemperaments.forEach(t => {
             Temperament.findOrCreate({

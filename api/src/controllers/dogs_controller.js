@@ -8,7 +8,7 @@ const getApiInfo = async () => {
             id: el.id,
             weight: el.weight,
             name: el.name,
-            temperaments:el.temperament,    
+            temperament:el.temperament, 
             height: el.height,
             life_span: el.life_span,
             image: el.image.url
@@ -38,9 +38,9 @@ const getApiInfo = async () => {
 // };
 const getDbInfo = async() => {
     return await Dog.findAll({
-    includes:{
+    include:{
         model: Temperament,
-        atributes: ['name'],
+        attributes: ['name'],
         through: {
             atributes: [],
         },
